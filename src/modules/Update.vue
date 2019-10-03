@@ -12,15 +12,15 @@
             <div class="card-body">
               <div class="form-group">
                 <label for="username" class="bmd-label-floating">Username</label>
-                <input type="text" class="form-control" id="username" v-model="username">
+                <input type="text" class="form-control" id="username" v-model="username" />
               </div>
               <div class="form-group">
                 <label for="email" class="bmd-label-floating">Email</label>
-                <input type="text" class="form-control" id="email" v-model="email">
+                <input type="text" class="form-control" id="email" v-model="email" />
               </div>
               <div class="form-group">
                 <label for="pwd" class="bmd-label-floating">Password</label>
-                <input type="password" class="form-control" id="passw" v-model="password">
+                <input type="password" class="form-control" id="passw" v-model="password" />
               </div>
               <center>
                 <button
@@ -50,25 +50,35 @@ export default {
       password: ""
     };
   },
-  methods: {
+ methods: {
     save: function(e) {
       e.preventDefault();
       sessionStorage.setItem("Username", this.username),
         sessionStorage.setItem("Email", this.email),
-        sessionStorage.setItem("Password", this.password),
+        sessionStorage.setItem("Password", this.password);
+      if (
+        this.username == "" ||
+        this.email == "" ||
+        this.password == ""
+      ) {
+        this.$swal.fire("Please provide inputs","Inputs are required!","warning");
+      } else {
+        this.$swal.fire("Profile has been changed!","Nice one!","success");
         AUTH.save(this.username, this.email, this.password);
-      ROUTER.push("/PersonalInfo");
+      }
     }
   }
 };
 </script>
 
-<style scoped>
-.jumbotron{
-    padding: 20px;
-    text-align: center;
+<style scoped lang="scss">
+@import "assets/colors.scss";
+.jumbotron {
+  padding: 20px;
+  text-align: center;
 }
 .container {
   padding: 20px;
+  
 }
 </style>

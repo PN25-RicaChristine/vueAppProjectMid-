@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="jumbotron">
-      <h1>Subjects</h1>
-    </div>
     <div class="container">
       <div class="row">
         <div class="col">
@@ -15,9 +12,13 @@
               style="max-width: 40rem;"
               class="mb-2"
             >
+              <b-button variant="primary" @click="removeItem">Remove</b-button>
+              <br>
+              <br>
               <table class="table">
                 <thead>
                   <tr>
+                    <th scope="col">COURSE</th>
                     <th scope="col">SUBJECT</th>
                     <th scope="col">TEACHER</th>
                     <th scope="col">TIME</th>
@@ -27,11 +28,12 @@
                 </thead>
                 <tbody v-for="(item, index) in this.rows" :key="index">
                   <tr>
+                    <td>{{ item.course }}</td>
                     <td>{{ item.subject }}</td>
                     <td>{{ item.teacher }}</td>
                     <td>{{ item.time }}</td>
                     <td>{{ item.day }}</td>
-                    <td>{{ item.room }}</td>
+                    <td>{{ item.venue }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -40,15 +42,10 @@
         </div>
         <div class="col">
           <center>
-            <b-card
-              text-align
-              id="card"
-              img-top
-              tag="article"
-              style="max-width: 30rem;"
-              class="mb-2"
-            >
+            <b-card text-align id="card" img-top tag="article" class="mb-2">
               <b-form-group label-for="input-lg">
+                <label id="Subject">Course:</label>
+                <b-form-input v-model="content.course" id="subject" size="sm"></b-form-input>
                 <label id="Subject">Subject:</label>
                 <b-form-input v-model="content.subject" id="subject" size="sm"></b-form-input>
                 <label id="teacher">Teacher:</label>
@@ -58,8 +55,8 @@
                 <label id="time">Day:</label>
                 <b-form-input v-model="content.day" id="day" size="sm"></b-form-input>
                 <label id="room">Venue:</label>
-                <b-form-input v-model="content.room" id="room" size="sm"></b-form-input>
-                <br>
+                <b-form-input v-model="content.venue" id="room" size="sm"></b-form-input>
+                <br />
                 <b-button variant="primary" @click="addItem">Add Subject</b-button>
               </b-form-group>
             </b-card>
@@ -71,10 +68,15 @@
 </template>
 
 
-<style>
-.jumbotron {
-  padding: 20px;
-  text-align: center;
+<style scoped lang = "scss">
+@import "assets/colors.scss";
+#card {
+  margin-top: 100px;
+  margin-left: 20px;
+  width: 300px;
+}
+#card1{
+    margin-top: 100px;
 }
 </style>
 
@@ -84,29 +86,55 @@ export default {
     return {
       rows: [],
       content: {
+        course: "",
         subject: "",
         teacher: "",
         time: "",
         day: "",
-        room: ""
+        venue: ""
       }
     };
   },
   methods: {
     addItem() {
       var object = {
+        course: this.content.course,
         subject: this.content.subject,
         teacher: this.content.teacher,
         time: this.content.time,
         day: this.content.day,
-        room: this.content.room
+        venue: this.content.venue
       };
-      this.rows.push(object);
-      this.content.subject = "";
-      this.content.teacher = "";
-      this.content.time = "";
-      this.content.day = "";
-      this.content.room = "";
+      if (
+        this.content.course == "" ||
+        this.content.subject == "" ||
+        this.content.teacher == "" ||
+        this.content.time == "" ||
+        this.content.day == "" ||
+        this.content.venue == ""
+      ) {
+        this.$swal.fire("Please provide inputs","Inputs are required!","warning");
+      } else {
+        this.$swal.fire("Succesfully Added","Nice one!","success");
+        this.rows.push(object);
+        this.content.course = "";
+        this.content.subject = "";
+        this.content.teacher = "";
+        this.content.time = "";
+        this.content.day = "";
+        this.content.venue = "";
+      }
+    },
+    removeItem(){
+      var object = {
+        course: this.content.course,
+        subject: this.content.subject,
+        teacher: this.content.teacher,
+        time: this.content.time,
+        day: this.content.day,
+        venue: this.content.venue
+      }
+      this.rows.splice(object,1);
     }
   }
 };

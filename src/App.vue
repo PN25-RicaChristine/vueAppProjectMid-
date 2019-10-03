@@ -1,12 +1,9 @@
 <template>
   <div id="app">
-    <Header
-      v-show="$route.path === '/Login' || $route.path === '/Register'|| $route.path === '/' ? true: false"
-    ></Header>
+    <Header></Header>
+    <Sidebar id="side"
+    v-show="$route.path === '/Dashboard' || $route.path === '/Subjects' || $route.path === '/PersonalInfo' ? true : false"></Sidebar>
     <AppBody></AppBody>
-    <Sidebar
-      v-show="$route.path === '/Dashboard' || $route.path === '/Subjects'|| $route.path === '/PersonalInfo' ? true: false"
-    ></Sidebar>
   </div>
 </template>
 
@@ -23,3 +20,10 @@ export default {
   }
 };
 </script>
+
+<style>
+body{
+  background-image: url("http://static.asiawebdirect.com/m/phuket/portals/philippines-hotels-ws/homepage/cebu-island/best-cebu-attractions/pagePropertiesImage/best-cebu-attractions.jpg");
+  background-size: cover;
+}
+</style>

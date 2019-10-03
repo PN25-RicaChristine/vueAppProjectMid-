@@ -1,5 +1,12 @@
 export default {
     routes: [{
+        path: '/',
+        name: 'home',
+        component: resolve => require(['router/frame/Header.vue'], resolve),
+        meta: {
+            tokenRequired: false
+        }
+    },{
         path: '/Login',
         name: 'login',
         component: resolve => require(['modules/Login.vue'], resolve),
@@ -27,7 +34,7 @@ export default {
         name: 'Subjects',
         component: resolve => require(['modules/Subjects.vue'], resolve),
         meta: {
-            tokenRequired: false
+            tokenRequired: true
         }
     },
     {
@@ -35,7 +42,7 @@ export default {
         name: 'PersonalInfo',
         component: resolve => require(['modules/PersonalInfo.vue'], resolve),
         meta: {
-            tokenRequired: false
+            tokenRequired: true
         }
     },
     {
@@ -43,7 +50,7 @@ export default {
         name: 'UpdateInfo',
         component: resolve => require(['modules/Update.vue'], resolve),
         meta: {
-            tokenRequired: false
+            tokenRequired: true
         }
     }]
 }

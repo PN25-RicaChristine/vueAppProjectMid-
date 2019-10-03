@@ -1,6 +1,6 @@
 <template>
   <center>
-    <div id="divFrom" class="col-sm-3 my-sm-5 border rounded" style="margin-left:0.5%">
+    <div id="divForm" class="col-sm-3 my-sm-5 border rounded">
       <form class="container">
         <center>
           <h1>Register</h1>
@@ -75,16 +75,22 @@
 @import "assets/colors.scss";
 
 #username {
-  color: $primary !important;
+  color: $plain !important;
 }
 #pass {
-  color: $primary !important;
+  color: $plain !important;
 }
 #email {
-  color: $primary !important;
+  color: $plain !important;
 }
 #conpass {
-  color: $primary !important;
+  color:$plain !important;
+  
+}
+
+#divForm{
+  background-color: $formbg !important;
+  margin-left:0.5%
 }
 </style>
 <script>
@@ -113,9 +119,9 @@ export default {
         this.content.password == "" ||
         this.content.conpassword == ""
       ) {
-        alert("Input is empty.");
+        this.$swal.fire("Please provide inputs","Inputs are required!","warning");
       } else if (this.content.password != this.content.conpassword) {
-        alert("Password missmatch!");
+        this.$swal.fire("Password Mismatch!","Type properly!","error");
       } else {
         AUTH.register(
           this.content.username,
@@ -123,7 +129,7 @@ export default {
           this.content.email,
           this.content.conpassword
         );
-        alert("you are registered");
+        this.$swal.fire("You are registered!","Nice one!","success");
       }
     }
   }

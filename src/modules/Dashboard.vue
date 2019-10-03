@@ -6,7 +6,7 @@
     <div id="card">
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <center>
-          <b-card-img id="image" :src="require('assets/user.png')" class="rounded-0"></b-card-img>
+          <b-card-img id="image" :src="require('assets/icon.png')" class="rounded-0"></b-card-img>
           <b-row no-gutters>
             <b-card-body>
               <h1>HI {{username}}</h1>
@@ -24,16 +24,21 @@
 #card {
   margin-left: $margin-left !important;
   margin-top: $margin-top !important; 
+      
+ 
 }
 .jumbotron{
     padding: $padding !important;
     text-align: $text-align !important;
     color: $primary !important;
+
 }
 #image {
   width: $width !important;
   height: $height !important;
 }
+
+
 </style>
 
 <script>

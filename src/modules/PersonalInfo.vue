@@ -28,13 +28,10 @@
 </template>
 
 <style>
-.jumbotron{
-    padding: 20px;
-    text-align: center;
-}
+
 #card {
   margin-top: 50px;
-  margin-left: 380px;
+  
 }
 </style>
 <script>

@@ -45,17 +45,22 @@
 @import "assets/colors.scss";
 
 #username {
-  color: $primary !important;
+  color: $plain !important;
 }
 #pass {
-  color: $primary !important;
+  color: $plain !important;
+}
+
+#divLogin{
+  background-color: $formbg !important;
 }
 </style>
 <script>
 import AUTH from 'services/auth'
+import ROUTER from "router";
 export default {
   data() {
-    AUTH
+    AUTH;
     return {
       username: "",
       password: ""
@@ -64,9 +69,18 @@ export default {
   methods: {
     submit: function(e) {
       e.preventDefault();
-      AUTH.login(this.username, this.password)
-    },
-
+      let user = AUTH.login(this.username, this.password);
+      if (this.username == "" || this.password == "") {
+        this.$swal.fire("Please provide inputs","Inputs are required!","warning");
+      } else {
+        this.$swal.fire("Please register first!","You need to register!","error");
+        AUTH.setUser(user);
+        if (user !== null) {
+          this.$swal.fire("Successfully Login!","Nice one!","success");
+          ROUTER.push("/Dashboard");
+        }
+      }
+    }
   }
 };
 </script>

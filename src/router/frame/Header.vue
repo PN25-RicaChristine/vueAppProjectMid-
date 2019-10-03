@@ -1,12 +1,12 @@
 <template>
   <div id="header">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #00e6e6">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
       <a>
         <b-navbar-brand href="#" class="title">iTour</b-navbar-brand>
       </a>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
+      <b-collapse id="nav-collapse" is-nav >
         <b-navbar-nav class="ml-auto">
           <form class="form-inline my-2 my-lg-0">
             <input
@@ -44,7 +44,7 @@
 </template>
 <style scoped lang="scss">
 @import "assets/colors.scss";
-#title {
+.title {
   color: $primary !important;
 }
 </style>

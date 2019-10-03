@@ -1,5 +1,9 @@
 let beforeEnter = (to, from, next) => {
-    next()
+    if(to.tokenRequired === true){
+        next()
+    }else{
+        next()
+    }
 }
 
 var devRoutes = []
