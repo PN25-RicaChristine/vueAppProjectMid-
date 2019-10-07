@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="jumbotron">
+    <!-- <div class="jumbotron">
       <h1>Dashboard</h1>
-    </div>
+    </div> -->
     <div id="card">
       <b-card class="overflow-hidden" id="form" style="max-width: 540px;">
         <center>
@@ -32,12 +32,11 @@
 background-color: $card !important;
 }
 
-.jumbotron{
-    padding: $padding !important;
-    text-align: $text-align !important;
+// .jumbotron{
+//     text-align: $text-align !important;
     
 
-}
+// }
 #image {
   width: $width !important;
   height: $height !important;

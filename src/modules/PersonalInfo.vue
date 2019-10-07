@@ -2,7 +2,7 @@
   <div id="container">
     <center>
       <div id="card">
-        <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+        <b-card  class="overflow-hidden" style="max-width: 540px;background-color:rgba(255, 255, 255,0.6)">
           <b-row no-gutters>
             <b-col md="6">
               <b-card-img :src="require('assets/user.png')" class="rounded-0"></b-card-img>
@@ -10,14 +10,15 @@
             <b-col md="6">
               <b-card-body title="Personal Info">
                 <hr>
+                <br>
                 <b-card-text>
-                  <h6>Username: {{username}}</h6>
-                  <h6>Email: {{email}}</h6>
-                  <h6 type="password">Password: {{password}}</h6>
+                  <h6>Username: <i>{{username}}</i></h6>
+                  <h6>Email: <i>{{email}}</i></h6>
+                  <h6 type="password">Password: <i>{{password}}</i></h6>
                 </b-card-text>
                 <center>
-                  <p>Do you want to edit your account?</p>
-                  <router-link to="/Update">Edit</router-link>
+                  <br><br>
+                  <router-link to="/Update"> <b-button variant="primary" @click="removeItem">Edit Account?</b-button></router-link>
                 </center>
               </b-card-body>
             </b-col>
@@ -30,12 +31,18 @@
 
 <style scoped lang="scss">
 @import "assets/colors.scss";
-// .jumbotron{
-//   color: $primary !important;
-// }
+ .jumbotron{
+   color: $primary !important;
+    }
 #card {
   margin-top: 50px;
   // margin-left: 380px;
+}
+
+
+
+i{
+  color:green;
 }
 </style>
 <script>

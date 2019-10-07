@@ -1,6 +1,6 @@
 <template>
   <div id="container">
-    <div class="row loginPage">
+    <div class="row loginPage" >
       <div class="col-md-4"></div>
       <div class="col-md-4">
         <div class="container">
@@ -70,14 +70,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.jumbotron {
-  padding: 20px;
-  text-align: center;
-}
-
-.container {
-  padding: 20px;
-}
-</style>
