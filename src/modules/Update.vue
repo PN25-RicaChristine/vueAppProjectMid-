@@ -1,11 +1,11 @@
 <template>
-  <div id="container">
+  <div id="container" style="margin-top:100px;">
     <div class="row loginPage" >
       <div class="col-md-4"></div>
       <div class="col-md-4">
         <div class="container">
-          <div class="card">
-            <div class="card-header">UPDATE INFO</div>
+          <div class="card" style=" background-color:rgba(255, 255, 255,0.6)">
+            <div class="card-header" style="text-align:center;font-size:20px"><b>UPDATE PERSONAL INFORMATION</b></div>
             <div class="card-body">
               <div class="form-group">
                 <label for="username" class="bmd-label-floating">Username</label>
@@ -62,7 +62,7 @@ export default {
         this.$swal.fire("Please provide inputs","Inputs are required!","warning");
       } else {
         
-        this.$swal.fire("Profile has been changed!","","success");
+        this.$swal.fire("Profile has been changed!"," ","success");
         AUTH.save(this.username, this.email, this.password);
         ROUTER.push('/PersonalInfo')
       }

@@ -23,7 +23,7 @@
 @import"assets/colors.scss";
 #card {
   margin-left: $margin-left !important;
-  margin-top: $margin-top !important; 
+  margin-top: 100px; 
 
       
 }

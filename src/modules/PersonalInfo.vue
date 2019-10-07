@@ -2,13 +2,13 @@
   <div id="container">
     <center>
       <div id="card">
-        <b-card  class="overflow-hidden" style="max-width: 540px;background-color:rgba(255, 255, 255,0.6)">
+        <b-card  class="overflow-hidden" style="max-width: 600px;background-color:rgba(255, 255, 255,0.6)">
           <b-row no-gutters>
             <b-col md="6">
               <b-card-img :src="require('assets/user.png')" class="rounded-0"></b-card-img>
             </b-col>
             <b-col md="6">
-              <b-card-body title="Personal Info">
+              <b-card-body title="Personal Information" style="font-weight:bold;font-size:20px;">
                 <hr>
                 <br>
                 <b-card-text>
@@ -35,14 +35,14 @@
    color: $primary !important;
     }
 #card {
-  margin-top: 50px;
+  margin-top: 100px;
   // margin-left: 380px;
 }
 
 
 
 i{
-  color:green;
+  color:$primary !important;
 }
 </style>
 <script>

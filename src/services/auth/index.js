@@ -33,7 +33,7 @@ export default {
         ROUTER.push('/Login')
     },
     
-    save() {
+    save(username,email,password) {
         for (let i = 0; i < this.registeredUser.length; i++) {
             this.registeredUser[i].username = username,
                 this.registeredUser[i].email = email,

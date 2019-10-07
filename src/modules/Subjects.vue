@@ -9,12 +9,12 @@
               id="card1"
               img-top
               tag="article"
-              style="max-width: 40rem;"
+              style="max-width: 40rem;background-color:rgba(255, 255, 255,0.6)"
               class="mb-2"
             >
-              <b-button variant="primary" @click="removeItem">Remove</b-button>
-              <br>
-              <br>
+              <div style="text-align:center;font-size:20px"><b>COURSE AND SUBJECT LISTS</b></div>
+              
+      
               <table class="table">
                 <thead>
                   <tr>
@@ -24,9 +24,10 @@
                     <th scope="col">TIME</th>
                     <th scope="col">DAY</th>
                     <th scope="col">VENUE</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
-                <tbody v-for="(item, index) in this.rows" :key="index">
+                <tbody hover v-for="(item, index) in this.rows" :key="index">
                   <tr>
                     <td>{{ item.course }}</td>
                     <td>{{ item.subject }}</td>
@@ -34,6 +35,7 @@
                     <td>{{ item.time }}</td>
                     <td>{{ item.day }}</td>
                     <td>{{ item.venue }}</td>
+                    <td><b-button variant="primary" @click="removeItem">Remove</b-button></td>
                   </tr>
                 </tbody>
               </table>
@@ -42,7 +44,7 @@
         </div>
         <div class="col">
           <center>
-            <b-card text-align id="card" img-top tag="article" class="mb-2">
+            <b-card text-align id="card" img-top tag="article" class="mb-2" style="background-color:rgba(255, 255, 255,0.6)">
               <b-form-group label-for="input-lg">
                 <label id="Subject">Course:</label>
                 <b-form-input v-model="content.course" id="subject" size="sm"></b-form-input>
@@ -57,7 +59,7 @@
                 <label id="room">Venue:</label>
                 <b-form-input v-model="content.venue" id="room" size="sm"></b-form-input>
                 <br />
-                <b-button variant="primary" @click="addItem">Add Subject</b-button>
+                <b-button variant="info" @click="addItem">Add Subject</b-button>
               </b-form-group>
             </b-card>
           </center>
@@ -77,6 +79,10 @@
 }
 #card1{
     margin-top: 100px;
+}
+
+th{
+  color:white;
 }
 </style>
 
@@ -115,7 +121,7 @@ export default {
       ) {
         this.$swal.fire("Please provide inputs","Inputs are required!","warning");
       } else {
-        this.$swal.fire("Succesfully Added","Nice one!","success");
+        this.$swal.fire("Succesfully Added",this.content.course+" "+this.content.subject,"success");
         this.rows.push(object);
         this.content.course = "";
         this.content.subject = "";
@@ -125,16 +131,25 @@ export default {
         this.content.venue = "";
       }
     },
-    removeItem(){
-      var object = {
-        course: this.content.course,
-        subject: this.content.subject,
-        teacher: this.content.teacher,
-        time: this.content.time,
-        day: this.content.day,
-        venue: this.content.venue
-      }
-      this.rows.splice(object,1);
+    // removeItem(){
+    //   var object = {
+    //     course: this.content.course,
+    //     subject: this.content.subject,
+    //     teacher: this.content.teacher,
+    //     time: this.content.time,
+    //     day: this.content.day,
+    //     venue: this.content.venue
+    //   }
+    //   this.rows.splice(object,1);
+    // }
+
+    removeItem(e){
+      for (let i = 0; i < this.rows.length; i++) {
+            if (this.rows[i].course === this.delInfo.delCourse) {
+              this.rows.splice(this.rows.indexOf(this.rows[i], 1));
+            }
+          }
+          
     }
   }
 };
