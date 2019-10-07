@@ -71,12 +71,12 @@ export default {
       e.preventDefault();
       let user = AUTH.login(this.username, this.password);
       if (this.username == "" || this.password == "") {
-        this.$swal.fire("Please provide inputs","Inputs are required!","warning");
+        this.$swal.fire("Inputs are required!","","warning");
       } else {
-        this.$swal.fire("Please register first!","You need to register!","error");
+        this.$swal.fire("You need to register first!","","error");
         AUTH.setUser(user);
         if (user !== null) {
-          this.$swal.fire("Successfully Login!","Nice one!","success");
+          this.$swal.fire("Successfully Login!","s","success");
           ROUTER.push("/Dashboard");
         }
       }

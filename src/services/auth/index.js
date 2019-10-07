@@ -32,13 +32,14 @@ export default {
         this.user = null
         ROUTER.push('/Login')
     },
-    update() {
-        this.user = null
-        ROUTER.push('/Update')
-    },
+    
     save() {
-        this.user = null
-        ROUTER.push('/PersonalInfo')
+        for (let i = 0; i < this.registeredUser.length; i++) {
+            this.registeredUser[i].username = username,
+                this.registeredUser[i].email = email,
+                this.registeredUser[i].password = password
+        }
+        
     }
 
 }

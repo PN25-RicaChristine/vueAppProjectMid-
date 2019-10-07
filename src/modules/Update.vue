@@ -53,6 +53,7 @@ export default {
       sessionStorage.setItem("Username", this.username),
         sessionStorage.setItem("Email", this.email),
         sessionStorage.setItem("Password", this.password);
+      
       if (
         this.username == "" ||
         this.email == "" ||
@@ -60,8 +61,10 @@ export default {
       ) {
         this.$swal.fire("Please provide inputs","Inputs are required!","warning");
       } else {
-        this.$swal.fire("Profile has been changed!","Nice one!","success");
+        
+        this.$swal.fire("Profile has been changed!","","success");
         AUTH.save(this.username, this.email, this.password);
+        ROUTER.push('/PersonalInfo')
       }
     }
   }

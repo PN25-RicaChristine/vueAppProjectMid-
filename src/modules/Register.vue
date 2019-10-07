@@ -110,7 +110,7 @@ export default {
   methods: {
     submit: function(e) {
       e.preventDefault();
-      sessionStorage.setItem("Username", this.content.username),
+        sessionStorage.setItem("Username", this.content.username),
         sessionStorage.setItem("Email", this.content.email),
         sessionStorage.setItem("Password", this.content.password);
       if (
@@ -119,9 +119,9 @@ export default {
         this.content.password == "" ||
         this.content.conpassword == ""
       ) {
-        this.$swal.fire("Please provide inputs","Inputs are required!","warning");
+        this.$swal.fire("Please provide inputs","","warning");
       } else if (this.content.password != this.content.conpassword) {
-        this.$swal.fire("Password Mismatch!","Type properly!","error");
+        this.$swal.fire("Password Mismatch!","","error");
       } else {
         AUTH.register(
           this.content.username,
@@ -129,7 +129,7 @@ export default {
           this.content.email,
           this.content.conpassword
         );
-        this.$swal.fire("Succesfully Registered!","Nice one!","success");
+        this.$swal.fire("Succesfully Registered!","","success");
       }
     }
   }

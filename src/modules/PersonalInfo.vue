@@ -50,9 +50,7 @@ export default {
     };
   },
   methods: {
-    update: function() {
-      AUTH.update(this.username, this.email, this.password);
-    }
+   
   }
 };
 </script>

@@ -6,7 +6,7 @@
     <div id="card">
       <b-card class="overflow-hidden" id="form" style="max-width: 540px;">
         <center>
-          <b-card-img id="image" :src="require('assets/icon.png')" class="rounded-0"></b-card-img>
+          <b-card-img id="image" :src="require('assets/user.png')" class="rounded-0"></b-card-img>
           <b-row no-gutters>
             <b-card-body>
               <h1>Hi {{username}} !</h1>
