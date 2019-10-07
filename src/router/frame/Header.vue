@@ -26,6 +26,7 @@
               style="font-size:larger"
               type="button"
               @click="redirect('/Login')"
+              v-if="auth.user === null"
             >Log In</button>
             <button
               class="btn btn-danger"
@@ -34,6 +35,7 @@
               data-toggle="tool-tip"
               title="Register if you don't have an account yet!"
               @click="redirect('/Register')"
+              v-if="auth.user === null"
             >Register</button>
           </form>
         </b-navbar-nav>
@@ -49,11 +51,18 @@
 }
 </style>
 <script>
-import ROUTER from "router";
+import ROUTER from "router"
+import AUTH from 'services/auth'
 export default {
+  
+  data() {
+    return {
+      auth: AUTH,
+    };
+  },
   methods: {
-    redirect(router) {
-      ROUTER.push(router);
+    redirect(route) {
+      ROUTER.push(route);
     }
   }
 };

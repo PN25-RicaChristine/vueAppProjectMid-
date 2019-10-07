@@ -1,6 +1,18 @@
 <template>
-  <sidebar-menu :menu="menu" />
+  <sidebar-menu :menu="menu" id="side"/>
 </template>
+
+<style scoped lang="scss">
+@import "assets/colors.scss";
+#side{
+margin-top: 56px;
+height:93%;
+background-color:$formbg !important;
+width:200px;
+}
+
+</style>
+
  
 <script>
 export default {
@@ -20,7 +32,7 @@ export default {
         {
           href: "/Subjects",
           title: "Subjects",
-          icon: "fa fa-chart-area",
+          icon: "fa fa-table",
         },
         {
           href: "/PersonalInfo",

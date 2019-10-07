@@ -129,7 +129,7 @@ export default {
           this.content.email,
           this.content.conpassword
         );
-        this.$swal.fire("You are registered!","Nice one!","success");
+        this.$swal.fire("Succesfully Registered!","Nice one!","success");
       }
     }
   }
