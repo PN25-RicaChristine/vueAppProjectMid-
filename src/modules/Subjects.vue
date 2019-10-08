@@ -11,9 +11,11 @@
               tag="article"
               style="max-width: 40rem;background-color:rgba(255, 255, 255,0.6)"
               class="mb-2"
+          
             >
-              <div style="text-align:center;font-size:20px"><b>COURSE AND SUBJECT LISTS</b></div>
-              
+              <div style="font-size:20px;font-weight:bold;color:white; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">
+                COURSES AND SUBJECTS INFORMATION</div>
+              <br>
       
               <table class="table">
                 <thead>
@@ -24,10 +26,9 @@
                     <th scope="col">TIME</th>
                     <th scope="col">DAY</th>
                     <th scope="col">VENUE</th>
-                    <th scope="col"></th>
                   </tr>
                 </thead>
-                <tbody hover v-for="(item, index) in this.rows" :key="index">
+                <tbody v-for="(item, index) in this.rows" :key="index">
                   <tr>
                     <td>{{ item.course }}</td>
                     <td>{{ item.subject }}</td>
@@ -35,11 +36,12 @@
                     <td>{{ item.time }}</td>
                     <td>{{ item.day }}</td>
                     <td>{{ item.venue }}</td>
-                    <td><b-button variant="primary" @click="removeItem">Remove</b-button></td>
                   </tr>
                 </tbody>
               </table>
+               <b-button variant="warning" @click="removeItem">Remove</b-button>
             </b-card>
+           
           </center>
         </div>
         <div class="col">
@@ -73,16 +75,12 @@
 <style scoped lang = "scss">
 @import "assets/colors.scss";
 #card {
-  margin-top: 100px;
+  margin-top: 50px;
   margin-left: 20px;
   width: 300px;
 }
 #card1{
-    margin-top: 100px;
-}
-
-th{
-  color:white;
+    margin-top: 50px;
 }
 </style>
 
@@ -121,7 +119,7 @@ export default {
       ) {
         this.$swal.fire("Please provide inputs","Inputs are required!","warning");
       } else {
-        this.$swal.fire("Succesfully Added",this.content.course+" "+this.content.subject,"success");
+        this.$swal.fire("Succesfully Added","Nice one!","success");
         this.rows.push(object);
         this.content.course = "";
         this.content.subject = "";
@@ -131,25 +129,16 @@ export default {
         this.content.venue = "";
       }
     },
-    // removeItem(){
-    //   var object = {
-    //     course: this.content.course,
-    //     subject: this.content.subject,
-    //     teacher: this.content.teacher,
-    //     time: this.content.time,
-    //     day: this.content.day,
-    //     venue: this.content.venue
-    //   }
-    //   this.rows.splice(object,1);
-    // }
-
-    removeItem(e){
-      for (let i = 0; i < this.rows.length; i++) {
-            if (this.rows[i].course === this.delInfo.delCourse) {
-              this.rows.splice(this.rows.indexOf(this.rows[i], 1));
-            }
-          }
-          
+    removeItem(){
+      var object = {
+        course: this.content.course,
+        subject: this.content.subject,
+        teacher: this.content.teacher,
+        time: this.content.time,
+        day: this.content.day,
+        venue: this.content.venue
+      }
+      this.rows.splice(object,1);
     }
   }
 };
