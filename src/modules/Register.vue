@@ -95,6 +95,7 @@
 </style>
 <script>
 import AUTH from "services/auth";
+import jquery from 'jquery'
 export default {
   data() {
     return {
@@ -130,6 +131,18 @@ export default {
           this.content.conpassword
         );
         this.$swal.fire("Succesfully Registered!"," ","success");
+//for database express
+      let link = `http://localhost:3000/db/create/${this.content.username}/${this.content.email}/${this.content.password}`;
+      jquery.ajax({
+        url:link,
+        method:'GET',
+        headers:{
+          'Access-Control-Allow-Origin':'*'
+        }
+      }).then(response => {
+        alert(response.username)
+      })
+//end db
       }
     }
   }

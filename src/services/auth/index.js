@@ -28,10 +28,10 @@ export default {
         }
         return null
     },
-    logout() {
-        this.user = null
-        ROUTER.push('/Login')
-    },
+    // logout() {
+    //     this.user = null
+    //     ROUTER.push('/Login')
+    // },
     
     save(username,email,password) {
         for (let i = 0; i < this.registeredUser.length; i++) {

@@ -12,9 +12,9 @@
                 <hr>
                 <br>
                 <b-card-text>
-                  <h6>Username: <i>{{username}}</i></h6>
-                  <h6>Email: <i>{{email}}</i></h6>
-                  <h6 type="password">Password: <i>{{password}}</i></h6>
+                  <h6>Username: <br><i>{{username}}</i></h6>
+                  <h6>Email: <br><i>{{email}}</i></h6>
+                  <h6 type="password">Password: <br><i>{{password}}</i></h6>
                 </b-card-text>
                 <center>
                   <br><br>

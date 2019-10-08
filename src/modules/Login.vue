@@ -32,6 +32,18 @@
             >
           </div>
           <br>
+           <div class="row">
+            <label id="conpass" for="inputConPassword" style="color:white">Confirm Password:</label>
+            <input
+              v-model="conpassword"
+              required
+              type="password"
+              class="form-control"
+              id="inputConPassword"
+              placeholder="Confirm Password"
+            >
+          </div>
+          <br>
           <button id="btnLogin" class="btn btn-primary" @click="submit">
             <h6>Login</h6>
           </button>
@@ -58,20 +70,25 @@
 <script>
 import AUTH from 'services/auth'
 import ROUTER from "router";
+// import jquery from 'jquery'
 export default {
   data() {
     AUTH;
     return {
       username: "",
-      password: ""
+      password: "",
+      conpassword:"",
     };
   },
   methods: {
     submit: function(e) {
       e.preventDefault();
       let user = AUTH.login(this.username, this.password);
-      if (this.username == "" || this.password == "") {
+      
+      if (this.username == "" || this.password == "" || this.conpassword=="") {
         this.$swal.fire("Inputs are required!"," ","warning");
+      }else if(this.password != this.conpassword){
+        this.$swal.fire("Password Mismatch!"," ","error");
       } else {
         this.$swal.fire("You need to register first!"," ","error");
         AUTH.setUser(user);

@@ -15,6 +15,7 @@ width:200px;
 
  
 <script>
+// import AUTH from 'services/auth'
 export default {
   data() {
     return {
@@ -37,6 +38,11 @@ export default {
         {
           href: "/PersonalInfo",
           title: "Personal Info",
+          icon: "fa fa-chart-area",
+        },
+        {
+          href: "/Timeline",
+          title: "Timeline",
           icon: "fa fa-chart-area",
         },
         {

@@ -46,6 +46,14 @@ export default {
         }
     },
     {
+        path: '/Timeline',
+        name: 'Timeline',
+        component: resolve => require(['modules/Timeline.vue'], resolve),
+        meta: {
+            tokenRequired: true
+        }
+    },
+    {
         path: '/Update',
         name: 'UpdateInfo',
         component: resolve => require(['modules/Update.vue'], resolve),

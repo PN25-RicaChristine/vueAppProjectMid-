@@ -2,7 +2,7 @@
   <div id="app">
     <Header></Header>
     <Sidebar id="side"
-    v-show="$route.path === '/Dashboard' || $route.path === '/Subjects' || $route.path === '/PersonalInfo' || $route.path === '/Update'? true : false"></Sidebar>
+    v-show="$route.path === '/Dashboard' || $route.path === '/Subjects' || $route.path === '/PersonalInfo' || $route.path === '/Update' || $route.path === '/Timeline'? true : false"></Sidebar>
     <AppBody></AppBody>
   </div>
 </template>
